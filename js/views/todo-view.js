@@ -33,7 +33,7 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
 			this.listenTo(this.model, 'visible', this.toggleVisible);
-			//this.listenTo(this.model, 'visible', this.orderDate);//This is preventing from being tirggered
+			this.listenTo(this.model, 'visible', this.orderDate);//This is preventing from being tirggered
 		},
 
 		// Re-render the titles of the todo item.
@@ -52,7 +52,6 @@ var app = app || {};
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.toggleClass('completed', this.model.get('completed'));
 			this.toggleVisible();
-			this.orderDate();
 			this.$input = this.$('.edit');
 			return this;
 		},
@@ -74,7 +73,7 @@ var app = app || {};
 		*/
 		orderDate: function(){
 			if(app.TodoFilter === 'date'){
-				alert('Date Triggered -- Ready to type code.');
+				$('#header').append('<h1>Test</h1>');
 			}
 		},
 
