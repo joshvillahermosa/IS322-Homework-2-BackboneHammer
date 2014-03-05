@@ -8,6 +8,7 @@ var app = app || {};
 	// ----------
 	var TodoRouter = Backbone.Router.extend({
 		routes: {
+			//'date': 'dateTriggered',
 			'*filter': 'setFilter'
 		},
 
@@ -18,7 +19,12 @@ var app = app || {};
 			// Trigger a collection filter event, causing hiding/unhiding
 			// of Todo view items
 			app.todos.trigger('filter');
-		}
+		},
+
+		/*dateTriggered: function(){
+			alert('Button Triggered');
+		}*/
+
 	});
 
 	app.TodoRouter = new TodoRouter();
