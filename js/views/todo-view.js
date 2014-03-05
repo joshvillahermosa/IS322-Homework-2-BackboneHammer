@@ -33,6 +33,7 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
 			this.listenTo(this.model, 'visible', this.toggleVisible);
+			this.listenTo(this.model, 'change', this.orderDate);//This is preventing from being tirggered
 		},
 
 		// Re-render the titles of the todo item.
@@ -65,6 +66,15 @@ var app = app || {};
 				(!isCompleted && app.TodoFilter === 'completed') ||
 				(isCompleted && app.TodoFilter === 'active')
 			);
+		},
+
+		/*
+		Date Toggeling
+		*/
+		orderDate: function(){
+			if(app.ToDoFilter === 'date'){
+				alert('Date Triggereed -- Ready to type code.');
+			}
 		},
 
 		// Toggle the `"completed"` state of the model.
