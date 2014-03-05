@@ -33,7 +33,7 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
 			this.listenTo(this.model, 'visible', this.toggleVisible);
-			this.listenTo(this.model, 'visible', this.orderDate);//This is preventing from being tirggered
+			this.listenTo(this.model, 'visible', this.datePriority);//This is preventing from being tirggered
 		},
 
 		// Re-render the titles of the todo item.
@@ -71,10 +71,20 @@ var app = app || {};
 		/*
 		Date Toggeling
 		*/
-		orderDate: function(){
+		datePriority: function(){
 			if(app.TodoFilter === 'date'){
-				$('#header').append('<h1>Test</h1>');
+				//$('#header').append('<h1>Test</h1>');
+				this.$el.html(this.template(this.model.toJSON()));
+				this.orderDate();
+				this.$input = this.$('.edit');
+				return this;
+
 			}
+		},
+
+		orderDate: function(){
+			var todoOrder = this.model.get('order');
+			$('#header').append('<h1>Test'+todoOrder+'</h1><br>');
 		},
 
 		// Toggle the `"completed"` state of the model.
