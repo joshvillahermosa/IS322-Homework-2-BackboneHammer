@@ -41,6 +41,7 @@ var app = app || {};
 		comparator: function (todo) {
 			return todo.get('order');
 		}
+
 	});
 
 	// Create our global collection of **Todos**.
