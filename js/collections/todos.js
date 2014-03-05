@@ -28,11 +28,6 @@ var app = app || {};
 			return this.without.apply(this, this.completed());
 		},
 
-		//Modfied here
-		date: function(){
-			alert('Date Triggerd');
-		},
-
 		// We keep the Todos in sequential order, despite being saved by unordered
 		// GUID in the database. This generates the next order number for new items.
 		nextOrder: function () {
