@@ -58,6 +58,7 @@ var app = app || {};
 				this.$footer.show();
 
 				this.$footer.html(this.statsTemplate({
+					//date:date,
 					completed: completed,
 					remaining: remaining
 				}));
