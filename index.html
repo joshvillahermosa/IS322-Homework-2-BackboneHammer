@@ -10,6 +10,7 @@
 			<header id="header">
 				<h1>todos</h1>
 				<input id="new-todo" placeholder="What needs to be done?" autofocus>
+				<input id="new-date" type="date">
 			</header>
 			<section id="main">
 				<input id="toggle-all" type="checkbox">
@@ -27,7 +28,7 @@
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
 				<label><%- title %></label>
-				//<button class="destroy"></button>
+				<button class="destroy"></button>
 			</div>
 			<input class="edit" value="<%- title %>">
 		</script>
