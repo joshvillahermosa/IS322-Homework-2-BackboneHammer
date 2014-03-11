@@ -19,17 +19,11 @@
 		<link rel="stylesheet" href="bower_components/todomvc-common/base.css"><meta http-equiv="X-UA-Compatible" content="IE=edge">      
 	</head>
 	<body>
-		<section id="todoapp" class="container">
+		<section id="todoapp">
 			<header id="header">
 				<h1>todos</h1>
-				<div class="row">
-					<div class="col-xs-6">
-						<input id="new-todo" placeholder="What needs to be done?" autofocus>
-					</div>
-					<div class="col-xs-6">
-						<input id="new-date" type="date">
-					</div>
-				</div>
+					<input id="new-todo" placeholder="What needs to be done?" autofocus>
+					<input id="new-date" type="date">
 			</header>
 			<section id="main">
 				<input id="toggle-all" type="checkbox">
@@ -51,7 +45,7 @@
 			</div>
 			<input class="edit" value="<%- title %>">
 		</script>
-		<script type="text/template" id="stats-template" class="container">
+		<script type="text/template" id="stats-template">
 			<span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
 			<ul id="filters">
 				<li>
@@ -84,7 +78,7 @@
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="js/vendor/jquery.hammer.min.js"></script>
         <script src="js/vendor/snap.min.js"></script>
-        <script src="js/plugins.js"></script>
+        <!--<script src="js/plugins.js"></script>-->
 
 		<!--Backbone Obj-->
 		<script src="js/models/todo.js"></script>
