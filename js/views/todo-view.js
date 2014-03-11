@@ -17,12 +17,13 @@ var app = app || {};
 
 		// The DOM events specific to an item.
 		events: {
-			'swipeleft label': 'toggleCompleted',
+			'swipe label': 'toggleCompleted',
 			'doubleclick label': 'edit',
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
-			'blur .edit': 'close'
+			'blur .edit': 'close',
+			'doubletap label': 'test'
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since
@@ -54,6 +55,10 @@ var app = app || {};
 			this.toggleVisible();
 			this.$input = this.$('.edit');
 			return this;
+		},
+
+		test: function(){
+			alert('Double tap enabled');
 		},
 
 		toggleVisible: function () {
