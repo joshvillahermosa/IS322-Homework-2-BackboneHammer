@@ -30,8 +30,14 @@
 			<header id="header">
 				<h1>todos</h1>
 					<!--<p>Hammer and Backbone made together. </p>-->
-					<input class="enterField" id="new-todo" placeholder="What needs to be done?" autofocus>
-					<input class="enterField" id="new-date" type="date">
+					<div class="row">
+						<div class="col-sm-6">
+							<input class="enterField" id="new-todo" placeholder="What needs to be done?" autofocus>
+						</div>
+						<div class="col-sm-6">
+							<input class="enterField" id="new-date" type="date">
+						</div>
+					</div>	
 			</header>
 			<section id="main">
 				<input id="toggle-all" type="checkbox">
@@ -54,8 +60,8 @@
 				<label class="todo-item"><%- title %> <i><%- date %></i></label>
 				<button class="destroy"></button>
 			</div>
-			<input class="edit" id="editTitle" value="<%- title %>">
-			<input type="date" class="edit" id="editDate" value="<%- date %>">
+			<input class="edit col-sm-6" id="editTitle" value="<%- title %>">
+			<input type="date" class="edit col-sm-6" id="editDate" value="<%- date %>">
 
 		</script>
 		<script type="text/template" id="stats-template">
