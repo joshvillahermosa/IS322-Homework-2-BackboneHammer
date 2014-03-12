@@ -57,11 +57,11 @@
 		<script type="text/template" id="item-template">
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-				<label class="todo-item"><%- title %> <i><%- date %></i></label>
+				<label class="todo-item"><%- title %>  &#8226;<i><%- date %></i></label>
 				<button class="destroy"></button>
 			</div>
-			<input class="edit col-sm-6" id="editTitle" value="<%- title %>">
-			<input type="date" class="edit col-sm-6" id="editDate" value="<%- date %>">
+			<input class="edit" id="editTitle" value="<%- title %>">
+			<input type="date" class="edit" id="editDate" value="<%- date %>">
 
 		</script>
 		<script type="text/template" id="stats-template">
