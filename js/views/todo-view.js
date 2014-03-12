@@ -19,7 +19,7 @@ var app = app || {};
 		events: {
 			'click .toggle': 'toggleCompleted',
 			'drag label': 'toggleCompleted',
-			'doubleclick label': 'edit',
+			'doubleclick .todo-item': 'edit',
 			'doubletap label': 'edit',
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
