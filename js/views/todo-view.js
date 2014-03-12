@@ -102,13 +102,15 @@ var app = app || {};
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function () {
 			this.$el.addClass('editing');
-			this.$input.focus();
+			//this.$input.focus();
 		},
 
 		// Close the `"editing"` mode, saving changes to the todo.
 		close: function () {
-			var value = this.$input.val();
-			var trimmedValue = value.trim();
+			var valueTitle = this.$('#editTitle').val();
+			var valueDate = this.$('#editDate').val();
+			var trimmedValueTitle = valueTitle.trim();
+			var trimmedValueDate = valueDate.trim();
 
 			// We don't want to handle blur events from an item that is no
 			// longer being edited. Relying on the CSS class here has the
@@ -118,10 +120,10 @@ var app = app || {};
 				return;
 			}
 
-			if (trimmedValue) {
-				this.model.save({ title: trimmedValue });
+			if (trimmedValueDate || trimmedValueTitle) {
+				this.model.save({ title: trimmedValueTitle, date: trimmedValueDate });//If it does't work, try creating a different save
 
-				if (value !== trimmedValue) {
+				if (valueTitle !== trimmedValueTitle || valueDate !== trimmedValueDate) {
 					// Model values changes consisting of whitespaces only are
 					// not causing change to be triggered Therefore we've to
 					// compare untrimmed version with a trimmed one to check
