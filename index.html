@@ -2,15 +2,34 @@
 <html lang="en" data-framework="backbonejs">
 	<head>
 		<meta charset="utf-8">
+		<meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <style type="text/css">
+        	#header input{
+        		display: inline;
+        	}
+        </style>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="css/vendor/bootstrap-theme.min.css">
+        Remove Comments to enable Bootstrap Theme -->
+        <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/snap.css">
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
 		<title>Backbone.js • TodoMVC</title>
-		<link rel="stylesheet" href="bower_components/todomvc-common/base.css">
+		<link rel="stylesheet" href="bower_components/todomvc-common/base.css"><meta http-equiv="X-UA-Compatible" content="IE=edge">      
 	</head>
-	<body>
+	<body class="container">
 		<section id="todoapp">
 			<header id="header">
 				<h1>todos</h1>
-				<input id="new-todo" placeholder="What needs to be done?" autofocus>
-				<input id="new-date" type="date">
+					<input class="enterField" id="new-todo" placeholder="What needs to be done?" autofocus>
+					<input class="enterField" id="new-date" type="date">
 			</header>
 			<section id="main">
 				<input id="toggle-all" type="checkbox">
@@ -27,10 +46,12 @@
 		<script type="text/template" id="item-template">
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-				<label><%- title %> <i><%- date %></i></label>
+				<label class="todo-item"><%- title %> <i><%- date %></i></label>
 				<button class="destroy"></button>
 			</div>
-			<input class="edit" value="<%- title %>">
+			<input class="edit" id="editTitle" value="<%- title %>">
+			<input type="date" class="edit" id="editDate" value="<%- date %>">
+
 		</script>
 		<script type="text/template" id="stats-template">
 			<span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
@@ -61,6 +82,15 @@
 		<script src="bower_components/underscore/underscore.js"></script>
 		<script src="bower_components/backbone/backbone.js"></script>
 		<script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/vendor/hammer.min.js"></script>
+		<script src="js/vendor/jquery.hammer-full.min.js"></script>
+   		<!--<script src="js/vendor/snap.min.js"></script>-->
+    	<script src="js/vendor/backbone.hammer.js"></script>
+        <!--<script src="js/plugins.js"></script>-->
+
+		<!--Backbone Obj-->
 		<script src="js/models/todo.js"></script>
 		<script src="js/collections/todos.js"></script>
 		<script src="js/views/todo-view.js"></script>

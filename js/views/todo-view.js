@@ -18,11 +18,14 @@ var app = app || {};
 		// The DOM events specific to an item.
 		events: {
 			'click .toggle': 'toggleCompleted',
-			'dblclick label': 'edit',
+			'drag label': 'toggleCompleted',
+			'doubleclick .todo-item': 'edit',
+			'doubletap label': 'edit',
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
-			'blur .edit': 'close'
+			'blur .edit': 'close',
+			//'doubletap body': 'test'
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since
@@ -54,6 +57,10 @@ var app = app || {};
 			this.toggleVisible();
 			this.$input = this.$('.edit');
 			return this;
+		},
+
+		test: function(){
+			alert('Double tap enabled');
 		},
 
 		toggleVisible: function () {
@@ -95,13 +102,15 @@ var app = app || {};
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function () {
 			this.$el.addClass('editing');
-			this.$input.focus();
+			//this.$input.focus();
 		},
 
 		// Close the `"editing"` mode, saving changes to the todo.
 		close: function () {
-			var value = this.$input.val();
-			var trimmedValue = value.trim();
+			var valueTitle = this.$('#editTitle').val();
+			var valueDate = this.$('#editDate').val();
+			var trimmedValueTitle = valueTitle.trim();
+			var trimmedValueDate = valueDate.trim();
 
 			// We don't want to handle blur events from an item that is no
 			// longer being edited. Relying on the CSS class here has the
@@ -111,10 +120,10 @@ var app = app || {};
 				return;
 			}
 
-			if (trimmedValue) {
-				this.model.save({ title: trimmedValue });
+			if (trimmedValueDate || trimmedValueTitle) {
+				this.model.save({ title: trimmedValueTitle, date: trimmedValueDate });//If it does't work, try creating a different save
 
-				if (value !== trimmedValue) {
+				if (valueTitle !== trimmedValueTitle || valueDate !== trimmedValueDate) {
 					// Model values changes consisting of whitespaces only are
 					// not causing change to be triggered Therefore we've to
 					// compare untrimmed version with a trimmed one to check
