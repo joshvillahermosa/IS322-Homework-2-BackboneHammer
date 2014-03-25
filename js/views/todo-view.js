@@ -18,7 +18,7 @@ var app = app || {};
 		// The DOM events specific to an item.
 		events: {
 			'click .toggle': 'toggleCompleted',
-			'drag label': 'toggleCompleted',
+			'swipeleft label': 'toggleCompleted',
 			'doubleclick .todo-item': 'edit',
 			'doubletap label': 'edit',
 			'click .destroy': 'clear',
@@ -81,7 +81,7 @@ var app = app || {};
 		datePriority: function(){
 			if(app.TodoFilter === 'date'){
 				//$('#header').append('<h1>Test</h1>');
-				this.$el.html(this.template(this.model.toJSON()));
+				this.$el.html(this.template(this.model.toJSON()));//Observe JSON
 				this.orderDate();
 				this.$input = this.$('.edit');
 				return this;
