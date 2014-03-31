@@ -1,6 +1,20 @@
 /*global Backbone */
 var app = app || {};
 
+
+Backbone.Model.prototype.toJSON = function(){
+	return this._parseDates(this.attributes);
+};
+
+Backbone.Model.prototype._parseDates = function(attrs){//This is a new methods that will comnvert strong to dates. Attrs is the JSON model
+	console.log(attrs);
+
+	attrs = _.clone(attrs);
+	var newdate = attrs.date.split("/").reverse().join("/");
+	attrs.date = new Date(newdate).toISOString();
+	return attrs;
+};
+
 (function () {
 	'use strict';
 

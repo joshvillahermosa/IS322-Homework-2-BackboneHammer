@@ -38,7 +38,7 @@ var app = app || {};
 		},
 
 		// Todos are sorted by their original insertion order.
-		comparator: function (todo) {
+		comparator: function (todo) { //NEED TO OVERRRIDE along with SORT
 			return todo.get('order');
 		}
 
