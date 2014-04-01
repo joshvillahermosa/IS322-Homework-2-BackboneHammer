@@ -19,12 +19,14 @@ var app = app || {};
 		// Filter down the list of all todo items that are finished.
 		completed: function () {
 			return this.filter(function (todo) {
+				//alert('Triggered Completed');
 				return todo.get('completed');
 			});
 		},
 
 		// Filter down the list to only todo items that are still not finished.
 		remaining: function () {
+			//alert('Triggered Active');
 			return this.without.apply(this, this.completed());
 		},
 
@@ -37,11 +39,11 @@ var app = app || {};
 			return this.last().get('order') + 1;
 		},
 
+
 		// Todos are sorted by their original insertion order.
 		comparator: function (todo) { //NEED TO OVERRRIDE along with SORT
-			return todo.get('order');
-		}
-
+			return todo.get('order'); //Default PAram: order
+		},
 	});
 
 	// Create our global collection of **Todos**.

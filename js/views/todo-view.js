@@ -18,10 +18,11 @@ var app = app || {};
 		// The DOM events specific to an item.
 		events: {
 			'click .toggle': 'toggleCompleted',
-			'swipeleft label': 'toggleCompleted',
+			'dragleft label': 'toggleCompleted',
 			'doubleclick .todo-item': 'edit',
 			'doubletap label': 'edit',
 			'click .destroy': 'clear',
+			'dragright label': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close',
@@ -77,7 +78,7 @@ var app = app || {};
 
 		/*
 		Date Toggeling
-		*/
+		
 		datePriority: function(){
 			if(app.TodoFilter === 'date'){
 				//$('#header').append('<h1>Test</h1>');
@@ -92,7 +93,7 @@ var app = app || {};
 		orderDate: function(){
 			var todoOrder = this.model.get('order');
 			$('#TestArea').append('<h1>Test'+todoOrder+'</h1><br>');
-		},
+		},*/
 
 		// Toggle the `"completed"` state of the model.
 		toggleCompleted: function () {
